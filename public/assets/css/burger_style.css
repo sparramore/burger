@@ -18,3 +18,19 @@ li {
     margin-bottom: 5px;
   }
   
+#uneaten_Burgers
+{
+    background-color: rgb(71,124,184);
+    text-align: center;
+}
+
+#eaten_Burgers
+{
+    background-color: rgb(71,124,184);
+    text-align: center;
+}
+
+body
+{
+    background-color: rgb(24,175,230) !important;
+}

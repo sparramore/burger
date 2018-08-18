@@ -1,7 +1,8 @@
-<li>
+<li style="list-style-type: circle; background: rgb(24,175,230);">
+    {{id}}
 	{{burger_name}}
 
-	<button class="change-eaten" data-id="{{id}}" data-burger="{{burger}}">
+	<button style="size: auto;" class="change-eaten" data-id="{{id}}" data-burger="{{burger}}">
 		{{#if eaten}}Eat da burger!{{else}}Burger Eaten!{{/if}}
 	</button>
 </li>
