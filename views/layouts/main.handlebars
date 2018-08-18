@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+		<title>Burgers!</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		
+	</head>
+	<body>
+        <script>
+
+                window.onload = function () {
+                        console.log("onLoad");
+                        $(".change-eaten").on("click", function (event) {
+                            var id = $(this).data("id");
+                            console.log("eaten");
+                            var newBurger = {
+                                eaten : true
+                            };
+
+                            // Send the PUT request.
+                            $.ajax("/api/burgers/" + id, {
+                                type: "PUT",
+                                data: newBurger
+                            }).then(
+                                function () {
+                                    // Reload the page to get the updated list
+                                    location.reload();
+                                }
+                            );
+                        });
+
+                        $("#addButton").on("click", function (event) {
+                            event.preventDefault();
+                            var newBurger = {
+                                burger_name : $("#burgerInput").val().trim()                                
+                            };
+                            console.log("NEW BURGER INFO: " + newBurger.burger_name);
+                            $.ajax("/api/burgers/", {
+                                type: "POST",
+                                data: newBurger
+                            }).then(
+                                function () {
+                                    // Reload the page to get the updated list
+                                    location.reload();
+                                }
+                            );
+                        });
+                }
+            
+        </script>
+		{{{ body }}}
+	</body>
+</html>

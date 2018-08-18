@@ -1,0 +1,47 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>About | Your Name</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+</head>
+
+
+<header id="masthead">
+    <div class="row">
+        <img src="/assets/img/burger.png" class="img-fluid" alt="Responsive image">
+    </div>
+<h2>Uneaten Burgers</h2>
+
+<ul>
+  {{#each burger}}
+    {{#unless eaten}}
+      {{> burgers/burger-block eaten=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Eaten Burgers</h2>
+
+<ul>
+  {{#each burger}}
+    {{#if eaten}}
+      {{> burgers/burger-block eaten=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-burger">
+
+  <div class="form-group">
+    <label for="burger">Burger Type:</label>
+    <input type="text" id="burgerInput" name="name">
+  </div>
+
+  <button type="submit" id="addButton">Add a Burger</button>
+</form>
